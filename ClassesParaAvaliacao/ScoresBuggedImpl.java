@@ -25,6 +25,9 @@ public class ScoresBuggedImpl implements Scores {
 	/** Attempt to add a new score to the collection (if it is high enough) */
 	public boolean add(GameEntry e) {
 		int newScore = e.getScore();
+		if(	newScore < 0 || 
+			newScore > Integer.MAX_VALUE ||
+			entries[4] != null) {return false;}
 		// is the new entry e really a high score?
 		if (numEntries == maxEntries) { // the array is full
 			if (newScore < entries[numEntries - 1].getScore())

@@ -6,7 +6,7 @@ public class GameEntry {
 	/** Constructor to create a game entry */
 	public GameEntry(String n, int s) {
 		name = n;
-		s = score;
+		score = s;
 	}
 
 	/** Retrieves the name field */
