@@ -1,6 +1,3 @@
-
-package highScores;
-
 /** Interface of classes for storing high scores in an array in non-decreasing order. */
 public interface Scores {
 	/** Returns a string representation of the high scores list */

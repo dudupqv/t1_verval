@@ -1,6 +1,3 @@
-
-package highScores;
-
 public class GameEntry {
 	protected String name; // name of the person earning this score
 

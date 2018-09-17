@@ -1,6 +1,3 @@
-
-package highScores;
-
 public class ScoresBuggedImpl implements Scores {
 	public static final int maxEntries = 10; // number of high scores we keep
 
