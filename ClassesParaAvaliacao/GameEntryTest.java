@@ -18,25 +18,23 @@ class GameEntryTest {
 	}
 	
 	@Test
-	boolean testScoreValue(int value) {
-		if(value >= 0 && value <= Integer.MAX_VALUE){
-			return true;
-		}
-		return false;
-	}
-
-	@Test
 	void testGetScore() {
-		//Verifica o interavalo do score
-		assertTrue("Score nao está entre 0 e Integer(MAX_VALUE)", testScoreValue((ge1.getScore())));
-		
 		//Limite Inferior
-		assertFalse("Teste limite inferior -1",-1 == ge1.getScore());
-		assertTrue("Teste limite inferior 0, 1",ge1.getScore() <= 0);		
+		
+		//Teste limite inferior -1
+		assertFalse(-1 == ge1.getScore());
+		
+		//Teste limite inferior 0, 1
+		assertTrue(ge1.getScore() >= 0);		
+		
 		
 		//Limite Superior
-		assertFalse("Teste limite superior Interger.MAX_VALUE", Integer.MAX_VALUE+1 == ge1.getScore());
-		assertTrue("Teste limite superior Interger.MAX_VALUE -1, Interger.MAX_VALUE",Integer.MAX_VALUE >= ge1.getScore());
+		
+		//Teste limite superior Interger.MAX_VALUE
+		assertFalse(Integer.MAX_VALUE+1 == ge1.getScore());
+		
+		//Teste limite superior Interger.MAX_VALUE -1, Interger.MAX_VALUE
+		assertTrue(Integer.MAX_VALUE >= ge1.getScore());
 	}
 
 	@Test

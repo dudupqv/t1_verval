@@ -17,7 +17,7 @@ public class ScoresBuggedImpl implements Scores {
 		for (int i = 0; i < numEntries; i++) {
 			if (i > 1)
 				s += ", "; // separate entries by commas
-			s += entries[i];
+			s += entries[i].toString();
 		}
 		return s + "]";
 	}

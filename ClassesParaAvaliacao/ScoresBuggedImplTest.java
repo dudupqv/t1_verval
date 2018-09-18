@@ -3,13 +3,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ScoresBuggedImplTest {
-	ScoresBuggedImpl scores = new ScoresBuggedImpl(); 
-	GameEntry teste = new GameEntry("Eduardo", -1);
-	
+	ScoresBuggedImpl scores = new ScoresBuggedImpl();
+	String testeToString = "[" + "(" + "Gabriel" + ", " + "1" + ")" +
+						         "(" + "Felipe" + ", " + "0" + ")" +"]";
 
 	@Test
 	void testAddAndRemove() {
-		
 		
 		//score menor que 0
 		assertFalse(scores.add(new GameEntry("Eduardo", -1)));
@@ -18,6 +17,9 @@ class ScoresBuggedImplTest {
 		assertTrue(scores.add(new GameEntry("Felipe", 0)));
 		//score igual ao limite inferior + 1
 		assertTrue(scores.add(new GameEntry("Gabriel", 1)));
+		
+		//teste ToString
+		assertEquals(testeToString, scores.toString());
 		
 		//score igual ao limite superior - 1
 		assertTrue(scores.add(new GameEntry("Leonardo", (Integer.MAX_VALUE-1))));
@@ -44,12 +46,6 @@ class ScoresBuggedImplTest {
 		assertEquals("Felipe", scores.remove(0).getName());
 		
 	}
-
-//	@Test
-//	boolean testRemove() {
-//		
-//		
-//	}
 
 	@Test
 	void testGetNumElements() {
