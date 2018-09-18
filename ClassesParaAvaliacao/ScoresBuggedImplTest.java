@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 
 class ScoresBuggedImplTest {
 	ScoresBuggedImpl scores = new ScoresBuggedImpl(); 
-
+	GameEntry teste = new GameEntry("Eduardo", -1);
+	
 
 	@Test
-	void testAdd() {
+	void testAddAndRemove() {
 		//score menor que 0
 		assertFalse(scores.add(new GameEntry("Eduardo", -1)));
 		//score igual ao limite inferior
@@ -30,16 +31,27 @@ class ScoresBuggedImplTest {
 		// removendo e verificando que a primeira posição do vetor
 		// posui a pessoa com o maior score
 		assertEquals("Rafael", scores.remove(0).getName());
+		assertEquals("Leonardo", scores.remove(0).getName());
+		assertEquals("Fernando", scores.remove(0).getName());
+		assertEquals("Gabriel", scores.remove(0).getName());
+		assertEquals("Felipe", scores.remove(0).getName());
+		
 	}
 
 //	@Test
-//	void testRemove() {
+//	boolean testRemove() {
+//		
 //		
 //	}
-//
-//	@Test
-//	void testGetNumElements() {
-//		fail("Not yet implemented");
-//	}
+
+	@Test
+	void testGetNumElements() {
+		assertTrue(scores.getNumElements() >= 0);
+	}
+	
+	@Test
+	void testGetCapacity() {
+		assertTrue(scores.getCapacity() >= 0);
+	}
 
 }

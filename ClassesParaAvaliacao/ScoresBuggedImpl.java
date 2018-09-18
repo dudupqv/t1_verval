@@ -1,5 +1,5 @@
 public class ScoresBuggedImpl implements Scores {
-	public static final int maxEntries = 10; // number of high scores we keep
+	public static final int maxEntries = 5; // number of high scores we keep
 
 	protected int numEntries; // number of actual entries
 
@@ -65,6 +65,6 @@ public class ScoresBuggedImpl implements Scores {
 
 	/** Returns the number of scores currently stored on the collection */
 	public int getNumElements() {
-		return (numEntries-1);
+		return (numEntries);
 	}
 }
