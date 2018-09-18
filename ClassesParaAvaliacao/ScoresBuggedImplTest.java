@@ -25,12 +25,16 @@ class ScoresBuggedImplTest {
 		assertTrue(scores.add(new GameEntry("Fernando", 381)));
 		
 		//Tentando adicionar alguem com vetor full
-		assertFalse(scores.add(new GameEntry("João", 400)));		
+		assertFalse(scores.add(new GameEntry("João", 400)));
+		
+		// removendo e verificando que a primeira posição do vetor
+		// posui a pessoa com o maior score
+		assertEquals("Rafael", scores.remove(0).getName());
 	}
-//
+
 //	@Test
 //	void testRemove() {
-//		fail("Not yet implemented");
+//		
 //	}
 //
 //	@Test
