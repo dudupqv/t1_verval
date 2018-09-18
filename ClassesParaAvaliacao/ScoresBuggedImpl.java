@@ -7,7 +7,7 @@ public class ScoresBuggedImpl implements Scores {
 
 	/** Default constructor */
 	public ScoresBuggedImpl() {
-		entries = new GameEntry[5];
+		entries = new GameEntry[maxEntries];
 		numEntries = 0;
 	}
 
@@ -15,7 +15,7 @@ public class ScoresBuggedImpl implements Scores {
 	public String toString() {
 		String s = "[";
 		for (int i = 0; i < numEntries; i++) {
-			if (i > 1)
+			if (i >= 1)
 				s += ", "; // separate entries by commas
 			s += entries[i].toString();
 		}
@@ -23,11 +23,14 @@ public class ScoresBuggedImpl implements Scores {
 	}
 
 	/** Attempt to add a new score to the collection (if it is high enough) */
-	public boolean add(GameEntry e) {
+	public boolean add(GameEntry e) throws IndexOutOfBoundsException{
 		int newScore = e.getScore();
 		if(	newScore < 0 || 
-			newScore > Integer.MAX_VALUE ||
-			entries[4] != null) {return false;}
+			newScore > Integer.MAX_VALUE) {
+			throw new IndexOutOfBoundsException();
+		} 
+		if(entries[4] != null) {throw new ArrayIndexOutOfBoundsException();}
+		
 		// is the new entry e really a high score?
 		if (numEntries == maxEntries) { // the array is full
 			if (newScore < entries[numEntries - 1].getScore())
