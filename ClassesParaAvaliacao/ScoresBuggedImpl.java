@@ -25,11 +25,7 @@ public class ScoresBuggedImpl implements Scores {
 	/** Attempt to add a new score to the collection (if it is high enough) */
 	public boolean add(GameEntry e) throws IndexOutOfBoundsException{
 		int newScore = e.getScore();
-		if(	newScore < 0 || 
-			newScore > Integer.MAX_VALUE) {
-			throw new IndexOutOfBoundsException();
-		} 
-		if(entries[4] != null) {throw new ArrayIndexOutOfBoundsException();}
+		if(	newScore < 0) throw new IllegalArgumentException();
 		
 		// is the new entry e really a high score?
 		if (numEntries == maxEntries) { // the array is full
