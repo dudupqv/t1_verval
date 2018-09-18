@@ -9,16 +9,21 @@ class ScoresBuggedImplTest {
 
 	@Test
 	void testAddAndRemove() {
+		
+		
 		//score menor que 0
 		assertFalse(scores.add(new GameEntry("Eduardo", -1)));
+		
 		//score igual ao limite inferior
 		assertTrue(scores.add(new GameEntry("Felipe", 0)));
 		//score igual ao limite inferior + 1
 		assertTrue(scores.add(new GameEntry("Gabriel", 1)));
+		
 		//score igual ao limite superior - 1
 		assertTrue(scores.add(new GameEntry("Leonardo", (Integer.MAX_VALUE-1))));
 		//score igual ao limite superior
 		assertTrue(scores.add(new GameEntry("Rafael", (Integer.MAX_VALUE))));
+		
 		//score maior que o limite superior
 		assertFalse(scores.add(new GameEntry("Gael", (Integer.MAX_VALUE+1))));
 		
@@ -31,6 +36,8 @@ class ScoresBuggedImplTest {
 		// removendo e verificando que a primeira posição do vetor
 		// posui a pessoa com o maior score
 		assertEquals("Rafael", scores.remove(0).getName());
+		//Após a primeira remoção a primeira posição é atualizada
+		//E desse jeito o primeiro lugar fica o segundo melhor score
 		assertEquals("Leonardo", scores.remove(0).getName());
 		assertEquals("Fernando", scores.remove(0).getName());
 		assertEquals("Gabriel", scores.remove(0).getName());
